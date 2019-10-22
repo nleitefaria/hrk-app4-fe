@@ -10,7 +10,7 @@ public class IndexController {
 	private String message;
 
     public IndexController(){
-        message = "Hello";
+        message = "Salut !!!";
     }
 
     public String getMessage() {
