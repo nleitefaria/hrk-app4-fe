@@ -12,5 +12,33 @@
 	<p:panel>
 		<h:outputText value="#{index.message}"/>
 	</p:panel>
+	
+	
+	
+	
+	<h:form>
+				<p:dataTable var="customer" value="#{index.model}"
+					paginator="true" rows="10"
+					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+					rowsPerPageTemplate="5,10,15" lazy="true">
+					<p:column headerText="Id">
+						<h:outputText value="#{customer.id}" />
+					</p:column>
+					<p:column headerText="Name">
+						<h:outputText value="#{customer.name}" />
+					</p:column>
+					<p:column headerText="Phone">
+						<h:outputText value="#{customer.phone}" />
+					</p:column>
+					
+
+
+				</p:dataTable>
+			</h:form>
+	
+	
+	
+	
+	
 </h:body>
 </html>
