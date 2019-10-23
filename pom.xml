@@ -6,6 +6,17 @@
 	<artifactId>hrk-app4-fe</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
+	
+	
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>Prime Repo</name>
+			<url>http://repository.primefaces.org</url>
+		</repository>
+	</repositories>
+	
+	
 	<dependencies>
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -17,7 +28,7 @@
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>5.2</version>
+			<version>6.2</version>
 		</dependency>
 
 		<!-- JSF 2 -->
@@ -58,6 +69,40 @@
 			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-client</artifactId>
+			<version>3.0.14.Final</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.json</groupId>
+			<artifactId>javax.json-api</artifactId>
+			<version>1.1.4</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.json</artifactId>
+			<version>1.0.4</version>
+		</dependency>
+		
+		 
+		 <!--
+		<dependency>
+        	<groupId>org.jboss.resteasy</groupId>
+        	<artifactId>resteasy-jackson2-provider</artifactId>
+        	<version>3.1.0.Final</version>
+    	</dependency>
+    	  -->
+    	  
+    	  <dependency>
+    <groupId>org.jboss.resteasy</groupId>
+    <artifactId>resteasy-jackson-provider</artifactId>
+    <version>2.3.4.Final</version>
+   </dependency>
+		
 
 	</dependencies>
 	<build>
