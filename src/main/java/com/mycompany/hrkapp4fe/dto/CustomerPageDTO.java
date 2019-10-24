@@ -1,4 +1,4 @@
-package com.mycompany.hrkapp4fe;
+package com.mycompany.hrkapp4fe.dto;
 
 import java.util.List;
 
