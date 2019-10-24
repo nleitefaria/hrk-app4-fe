@@ -5,6 +5,8 @@ import javax.faces.bean.RequestScoped;
 
 import org.primefaces.model.LazyDataModel;
 
+import com.mycompany.hrkapp4fe.dto.CustomerDTO;
+
 @ManagedBean(name = "index")
 @RequestScoped
 public class IndexController {

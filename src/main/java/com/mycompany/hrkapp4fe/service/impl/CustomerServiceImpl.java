@@ -1,4 +1,4 @@
-package com.mycompany.hrkapp4fe;
+package com.mycompany.hrkapp4fe.service.impl;
 
 import java.util.List;
 
@@ -8,11 +8,15 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 
-public class CustomerService {
+import com.mycompany.hrkapp4fe.dto.CustomerDTO;
+import com.mycompany.hrkapp4fe.dto.CustomerPageDTO;
+import com.mycompany.hrkapp4fe.service.CustomerService;
+
+public class CustomerServiceImpl implements CustomerService {
 	
 	final String path = "https://hrk-app4.herokuapp.com/customers"; 
 	
-	public CustomerService(){}
+	public CustomerServiceImpl(){}
 	
     public List<CustomerDTO> getAll(int start, int size)
     { 
