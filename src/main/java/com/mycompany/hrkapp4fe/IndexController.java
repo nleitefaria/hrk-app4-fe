@@ -6,6 +6,7 @@ import javax.faces.bean.RequestScoped;
 import org.primefaces.model.LazyDataModel;
 
 import com.mycompany.hrkapp4fe.dto.CustomerDTO;
+import com.mycompany.hrkapp4fe.model.CustomerLazyDataModel;
 
 @ManagedBean(name = "index")
 @RequestScoped
