@@ -1,4 +1,4 @@
-package com.mycompany.hrkapp4fe;
+package com.mycompany.hrkapp4fe.model;
 
 import java.util.List;
 import java.util.Map;
