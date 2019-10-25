@@ -7,6 +7,25 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Home</title>
+	
+	
+	<script type="text/javascript">
+    function handleCreateRequest(xhr, status, args) {
+    	/*
+        if(args.validationFailed || !args.loggedIn) {
+            PF('dlg').jq.effect("shake", {times:5}, 100);
+        }
+        else {
+            PF('dlg').hide();
+            $('#loginLink').fadeOut();
+        }
+    	*/
+    	PF('dlg1').hide();
+        $('#loginLink').fadeOut();
+    }
+</script>
+	
+	
 </h:head>
 <h:body>
 	<p:panel>
@@ -20,7 +39,7 @@
 	</p:panel>
 	
 	<h:form>
-		<p:dataTable var="customer" value="#{index.model}" paginator="true"
+		<p:dataTable var="customer" value="#{index.dataModel}" paginator="true"
 			rows="10"
 			paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 			rowsPerPageTemplate="5,10,15" lazy="true">
@@ -37,6 +56,22 @@
 	</h:form>
 	<p:dialog header="Create" modal="true"  widgetVar="dlg1" height="100">
     	<h:outputText value="TODO CREATE FORM" />
+    	
+    	<h:form>     
+    	<h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel for="name" value="Name:" />
+            <p:inputText id="name" value="#{index.customerDTO.name}" required="true" label="name" />
+            
+            <h:outputLabel for="phone" value="Phone:" />
+            <p:password id="phone" value="#{index.customerDTO.phone}" required="true" label="phone" />
+             
+            <f:facet name="footer">
+                <p:commandButton value="Save" action="#{index.create}" oncomplete="handleCreateRequest(xhr, status, args)" />
+            </f:facet>  
+        </h:panelGrid>
+        </h:form>     
+    	
+    	
 	</p:dialog>   
 </h:body>
 </html>
