@@ -5,31 +5,36 @@ import java.util.List;
 public class CustomerPageDTO {
 	
 	private List<CustomerDTO> content;
+	private PageableDTO pageable;
+	private float totalPages;
+	private float totalElements;
 	private boolean last;
-	private int totalPages;
-	private int totalElements;	
 	private boolean first;
-	private String sort;
-	private int numberOfElements;
-	private int size;
-	private int number;
+	private List<SortDTO> sort;
+	private float numberOfElements;
+	private float size;
+	private float number;
+	private boolean empty;
 	
 	public CustomerPageDTO() {
 		super();
 	}
 
-	public CustomerPageDTO(List<CustomerDTO> content, boolean last, int totalPages, int totalElements, boolean first,
-			String sort, int numberOfElements, int size, int number) {
+	public CustomerPageDTO(List<CustomerDTO> content, PageableDTO pageable, float totalPages, float totalElements,
+			boolean last, boolean first, List<SortDTO> sort, float numberOfElements, float size, float number,
+			boolean empty) {
 		super();
 		this.content = content;
-		this.last = last;
+		this.pageable = pageable;
 		this.totalPages = totalPages;
 		this.totalElements = totalElements;
+		this.last = last;
 		this.first = first;
 		this.sort = sort;
 		this.numberOfElements = numberOfElements;
 		this.size = size;
 		this.number = number;
+		this.empty = empty;
 	}
 
 	public List<CustomerDTO> getContent() {
@@ -40,28 +45,36 @@ public class CustomerPageDTO {
 		this.content = content;
 	}
 
+	public PageableDTO getPageable() {
+		return pageable;
+	}
+
+	public void setPageable(PageableDTO pageable) {
+		this.pageable = pageable;
+	}
+
+	public float getTotalPages() {
+		return totalPages;
+	}
+
+	public void setTotalPages(float totalPages) {
+		this.totalPages = totalPages;
+	}
+
+	public float getTotalElements() {
+		return totalElements;
+	}
+
+	public void setTotalElements(float totalElements) {
+		this.totalElements = totalElements;
+	}
+
 	public boolean isLast() {
 		return last;
 	}
 
 	public void setLast(boolean last) {
 		this.last = last;
-	}
-
-	public int getTotalPages() {
-		return totalPages;
-	}
-
-	public void setTotalPages(int totalPages) {
-		this.totalPages = totalPages;
-	}
-
-	public int getTotalElements() {
-		return totalElements;
-	}
-
-	public void setTotalElements(int totalElements) {
-		this.totalElements = totalElements;
 	}
 
 	public boolean isFirst() {
@@ -72,37 +85,47 @@ public class CustomerPageDTO {
 		this.first = first;
 	}
 
-	public String getSort() {
+	public List<SortDTO> getSort() {
 		return sort;
 	}
 
-	public void setSort(String sort) {
+	public void setSort(List<SortDTO> sort) {
 		this.sort = sort;
 	}
 
-	public int getNumberOfElements() {
+	public float getNumberOfElements() {
 		return numberOfElements;
 	}
 
-	public void setNumberOfElements(int numberOfElements) {
+	public void setNumberOfElements(float numberOfElements) {
 		this.numberOfElements = numberOfElements;
 	}
 
-	public int getSize() {
+	public float getSize() {
 		return size;
 	}
 
-	public void setSize(int size) {
+	public void setSize(float size) {
 		this.size = size;
 	}
 
-	public int getNumber() {
+	public float getNumber() {
 		return number;
 	}
 
-	public void setNumber(int number) {
+	public void setNumber(float number) {
 		this.number = number;
 	}
+
+	public boolean isEmpty() {
+		return empty;
+	}
+
+	public void setEmpty(boolean empty) {
+		this.empty = empty;
+	}
+
+	
 
 	
 }
