@@ -29,49 +29,54 @@
 </h:head>
 <h:body>
 	<p:panel>
-		<h:outputText value="TODO SEARCH FROM" />		
-		
-	</p:panel>
-	
-	<p:panel>
-		
-		 <p:commandButton value="Create" type="button" onclick="PF('dlg1').show();" />
-	</p:panel>
-	
-	<h:form>
-		<p:dataTable var="customer" value="#{index.dataModel}" paginator="true"
+		<h:form>     
+    	<h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel for="name" value="Name:" />
+            <p:inputText id="name" value="#{index.customerDTO.name}" required="true" label="name" />          
+            <h:outputLabel for="phone" value="Phone:" />
+            <p:password id="phone" value="#{index.customerDTO.phone}" required="true" label="phone" />            
+            <h:outputLabel for="country" value="Country:" />
+            <p:password id="country" value="#{index.customerDTO.country}" required="true" label="country" />
+            <p:commandButton value="Search" type="button" />
+            <p:commandButton value="Submit" update=":table1" />
+            <h:outputText id="display" value="#{index.customerDTO.name}" />
+            <p:commandButton value="Search AJAX" id="search" process="@all" update="table1" action="#{index.reload}" />
+        </h:panelGrid>
+        </h:form>     		
+	</p:panel>	
+	<h:form id="table1">
+		<p:dataTable var="customer" value="#{index.dataModel}" paginator="true" id="table1"
 			rows="10"
 			paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 			rowsPerPageTemplate="5,10,15" lazy="true">
-			<p:column headerText="Id">
-				<h:outputText value="#{customer.id}" />
-			</p:column>
 			<p:column headerText="Name">
 				<h:outputText value="#{customer.name}" />
 			</p:column>
 			<p:column headerText="Phone">
 				<h:outputText value="#{customer.phone}" />
 			</p:column>
+			<p:column headerText="Country">
+				<h:outputText value="#{customer.country}" />
+			</p:column>
 		</p:dataTable>
 	</h:form>
-	<p:dialog header="Create" modal="true"  widgetVar="dlg1" height="100">
-    	<h:outputText value="TODO CREATE FORM" />
-    	
+	<p:panel>	
+		 <p:commandButton value="Create" type="button" onclick="PF('dlg1').show();" />
+	</p:panel>
+	<p:dialog header="Create" modal="true"  widgetVar="dlg1" height="400">
     	<h:form>     
     	<h:panelGrid columns="2" cellpadding="5">
             <h:outputLabel for="name" value="Name:" />
-            <p:inputText id="name" value="#{index.customerDTO.name}" required="true" label="name" />
-            
+            <p:inputText id="name" value="#{index.customerDTO.name}" required="true" label="name" />          
             <h:outputLabel for="phone" value="Phone:" />
-            <p:password id="phone" value="#{index.customerDTO.phone}" required="true" label="phone" />
-             
+            <p:password id="phone" value="#{index.customerDTO.phone}" required="true" label="phone" />            
+            <h:outputLabel for="country" value="Country:" />
+            <p:password id="country" value="#{index.customerDTO.country}" required="true" label="country" />
             <f:facet name="footer">
                 <p:commandButton value="Save" action="#{index.create}" oncomplete="handleCreateRequest(xhr, status, args)" />
             </f:facet>  
         </h:panelGrid>
-        </h:form>     
-    	
-    	
+        </h:form>     	
 	</p:dialog>   
 </h:body>
 </html>
