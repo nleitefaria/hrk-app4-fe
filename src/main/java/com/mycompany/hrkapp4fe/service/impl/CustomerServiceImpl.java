@@ -19,8 +19,7 @@ public class CustomerServiceImpl implements CustomerService {
 	public CustomerServiceImpl(){}
 	
     public List<CustomerDTO> getAll(int start, int size)
-    { 
-    	
+    {   	
     	ResteasyClient client = new ResteasyClientBuilder().build();
         ResteasyWebTarget target = client.target(path + "/page/" + (start + 1));
         Response response = target.request().get();
