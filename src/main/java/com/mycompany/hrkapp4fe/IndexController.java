@@ -73,6 +73,7 @@ public class IndexController {
 	
 	public void reload()
 	{
+		System.out.println("@reload");
 		System.out.println(this.customerDTO.getName());
 		System.out.println(this.customerDTO.getPhone());
 	}

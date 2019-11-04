@@ -20,7 +20,19 @@ public class CustomerLazyDataModel extends LazyDataModel<CustomerDTO>
     
     public List<CustomerDTO> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, Object> filters)
     {
+    	System.out.println("@load");
     	CustomerServiceImpl s = new CustomerServiceImpl();
+    	
+    	if (filters!=null) {
+        	
+            for(Map.Entry<String,Object> e : filters.entrySet()) {
+                if (e.getValue()!=null){
+                	System.out.println(" *********** key: "+e.getKey()+" value: "+e.getValue());
+                	
+                }
+            }
+    	}
+    	
         return s.getAll(first / 10, pageSize);
     }
 

@@ -27,29 +27,17 @@
 	
 	
 </h:head>
-<h:body>
+<h:body>	
+	<p:panel>	
+		 <p:commandButton value="Create" type="button" onclick="PF('dlg1').show();" />
+	</p:panel>
 	<p:panel>
-		<h:form>     
-    	<h:panelGrid columns="2" cellpadding="5">
-            <h:outputLabel for="name" value="Name:" />
-            <p:inputText id="name" value="#{index.customerDTO.name}" required="true" label="name" />          
-            <h:outputLabel for="phone" value="Phone:" />
-            <p:password id="phone" value="#{index.customerDTO.phone}" required="true" label="phone" />            
-            <h:outputLabel for="country" value="Country:" />
-            <p:password id="country" value="#{index.customerDTO.country}" required="true" label="country" />
-            <p:commandButton value="Search" type="button" />
-            <p:commandButton value="Submit" update=":table1" />
-            <h:outputText id="display" value="#{index.customerDTO.name}" />
-            <p:commandButton value="Search AJAX" id="search" process="@all" update="table1" action="#{index.reload}" />
-        </h:panelGrid>
-        </h:form>     		
-	</p:panel>	
 	<h:form id="table1">
 		<p:dataTable var="customer" value="#{index.dataModel}" paginator="true" id="table1"
 			rows="10"
 			paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 			rowsPerPageTemplate="5,10,15" lazy="true">
-			<p:column headerText="Name">
+			<p:column headerText="Name" filterBy="#{customer.name}">
 				<h:outputText value="#{customer.name}" />
 			</p:column>
 			<p:column headerText="Phone">
@@ -60,10 +48,8 @@
 			</p:column>
 		</p:dataTable>
 	</h:form>
-	<p:panel>	
-		 <p:commandButton value="Create" type="button" onclick="PF('dlg1').show();" />
 	</p:panel>
-	<p:dialog header="Create" modal="true"  widgetVar="dlg1" height="400">
+	<p:dialog header="Create" modal="true"  widgetVar="dlg1" height="200">
     	<h:form>     
     	<h:panelGrid columns="2" cellpadding="5">
             <h:outputLabel for="name" value="Name:" />
