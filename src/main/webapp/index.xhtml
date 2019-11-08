@@ -7,7 +7,9 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Home</title>
-	
+	<h:head>
+	<h:outputStylesheet name="styles.css" library="css" />
+    </h:head>
 	
 	<script type="text/javascript">
     function handleCreateRequest(xhr, status, args) {
@@ -23,13 +25,12 @@
     	PF('dlg1').hide();
         $('#loginLink').fadeOut();
     }
-</script>
-	
-	
+</script>	
 </h:head>
-<h:body>	
-	<p:panel>	
-		 <p:commandButton value="Create" type="button" onclick="PF('dlg1').show();" />
+<h:body>
+	<div id="main">	
+	<p:panel>		
+		 <p:commandButton value="Create" type="button" onclick="PF('dlg1').show();" />	 
 	</p:panel>
 	<p:panel>
 	<h:form id="table1">
@@ -63,6 +64,7 @@
             </f:facet>  
         </h:panelGrid>
         </h:form>     	
-	</p:dialog>   
+	</p:dialog>  
+	</div> 
 </h:body>
 </html>
