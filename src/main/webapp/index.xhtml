@@ -29,10 +29,8 @@
 </h:head>
 <h:body>
 	<div id="main">	
+	<p:commandButton value="Create" type="button" onclick="PF('dlg1').show();" />	 
 	<p:panel>		
-		 <p:commandButton value="Create" type="button" onclick="PF('dlg1').show();" />	 
-	</p:panel>
-	<p:panel>
 	<h:form id="table1">
 		<p:dataTable var="customer" value="#{index.dataModel}" paginator="true" id="table1"
 			rows="10"
@@ -41,7 +39,7 @@
 			<p:column headerText="Name" filterBy="#{customer.name}">
 				<h:outputText value="#{customer.name}" />
 			</p:column>
-			<p:column headerText="Phone">
+			<p:column headerText="Phone" filterBy="#{customer.phone}">
 				<h:outputText value="#{customer.phone}" />
 			</p:column>
 			<p:column headerText="Country">
