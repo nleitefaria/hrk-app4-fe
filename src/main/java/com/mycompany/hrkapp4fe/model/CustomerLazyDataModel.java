@@ -7,6 +7,7 @@ import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 
 import com.mycompany.hrkapp4fe.dto.CustomerDTO;
+import com.mycompany.hrkapp4fe.dto.CustomerPageDTO;
 import com.mycompany.hrkapp4fe.service.impl.CustomerServiceImpl;
 
 public class CustomerLazyDataModel extends LazyDataModel<CustomerDTO> 
@@ -29,7 +30,6 @@ public class CustomerLazyDataModel extends LazyDataModel<CustomerDTO>
             {
             	name = filters.get("name").toString();
             }
-
             if(filters.get("phone") != null)
             {
             	phone = filters.get("phone").toString();
@@ -40,6 +40,10 @@ public class CustomerLazyDataModel extends LazyDataModel<CustomerDTO>
     	{
     		customerDTO = new CustomerDTO("", "");
     	}	
-        return s.getAll(first / 10, pageSize, customerDTO);
+    	
+    	CustomerPageDTO customerPageDTO = s.getAll(first / 10, pageSize, customerDTO);
+    	
+    	this.setRowCount((int) customerPageDTO.getTotalElements());
+        return customerPageDTO.getContent();
     }
 }

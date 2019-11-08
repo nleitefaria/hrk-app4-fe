@@ -1,6 +1,5 @@
 package com.mycompany.hrkapp4fe.service.impl;
 
-import java.util.List;
 import javax.ws.rs.core.Response;
 import org.apache.http.client.utils.URIBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
@@ -15,8 +14,8 @@ public class CustomerServiceImpl implements CustomerService
 	final String path = "https://hrk-app4.herokuapp.com/customers"; 
 	
 	public CustomerServiceImpl(){}
-	
-    public List<CustomerDTO> getAll(int start, int size, CustomerDTO customerDTO)
+	    
+    public CustomerPageDTO getAll(int start, int size, CustomerDTO customerDTO)
     {   	
     	ResteasyClient client = new ResteasyClientBuilder().build();   	
     	URIBuilder b=null;
@@ -32,9 +31,9 @@ public class CustomerServiceImpl implements CustomerService
         Response response = target.request().get();
         CustomerPageDTO value = response.readEntity(CustomerPageDTO.class);
         response.close();
-        return value.getContent();
+        return value;
     }
-
+    
     public int count()
     {
     	ResteasyClient client = new ResteasyClientBuilder().build();
