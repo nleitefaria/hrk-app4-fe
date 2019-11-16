@@ -20,6 +20,7 @@ public class IndexController {
     
 
     public IndexController(){
+	    System.out.println("Testing !!!");
     	customerDTO = new CustomerDTO();
     }
 
